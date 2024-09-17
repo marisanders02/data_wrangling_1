@@ -43,3 +43,50 @@ pups_df <- read_csv("Data_examples/FAS_pups.csv")
 pups_df <- janitor::clean_names(pups_df)
 ```
 
+## Look at read_csv options 
+
+col_names and skipping rows 
+
+```{r}
+
+litters_df <- 
+  read_csv(
+  file = "Data_examples/FAS_litters.csv", 
+  col_names = FALSE, 
+  skip = 1
+  )
+```
+
+what about missing data
+
+```{r}
+litters_df <- 
+  read_csv(
+    file = "Data_examples/FAS_litters.csv",
+    na = c("NA", "", ".")
+  )
+
+litters_df <- janitor::clean_names(litters_df)
+
+pull(litters_df, gd0_weight)
+
+mean(pull(litters_df, gd0_weight), na.rm = TRUE)
+```
+
+What if we code `group` as as factor variable? 
+
+```{r}
+litters_df <- 
+  read_csv(
+    file = "Data_examples/FAS_litters.csv",
+    na = c("NA", "", "."), 
+    col_types = cols(
+      Group = col_factor()
+    )
+  )
+litters_df
+```
+
+
+
+
