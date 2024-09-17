@@ -127,7 +127,7 @@ litters_df <-
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
-what about missing data
+what about missing data?
 
 ``` r
 litters_df <- 
@@ -193,3 +193,44 @@ litters_df
     ## # ℹ 39 more rows
     ## # ℹ 3 more variables: `Pups born alive` <dbl>, `Pups dead @ birth` <dbl>,
     ## #   `Pups survive` <dbl>
+
+## Import an excel file
+
+Import MLB 2011 summary data
+
+``` r
+mlb_df <- 
+  read_excel("Data_examples/mlb11.xlsx", sheet = "mlb11")
+```
+
+## Import SAS data
+
+``` r
+pulse_df <- read_sas("Data_examples/public_pulse_data.sas7bdat")
+```
+
+## Never use read.csv()
+
+``` r
+litters_df <- read.csv("Data_examples/FAS_litters.csv")
+```
+
+Never do this either:
+
+``` r
+litters_df$L
+```
+
+    ##  [1] "#85"             "#1/2/95/2"       "#5/5/3/83/3-3"   "#5/4/2/95/2"    
+    ##  [5] "#4/2/95/3-3"     "#2/2/95/3-2"     "#1/5/3/83/3-3/2" "#3/83/3-3"      
+    ##  [9] "#2/95/3"         "#3/5/2/2/95"     "#5/4/3/83/3"     "#1/6/2/2/95-2"  
+    ## [13] "#3/5/3/83/3-3-2" "#2/2/95/2"       "#3/6/2/2/95-3"   "#59"            
+    ## [17] "#103"            "#1/82/3-2"       "#3/83/3-2"       "#2/95/2-2"      
+    ## [21] "#3/82/3-2"       "#4/2/95/2"       "#5/3/83/5-2"     "#8/110/3-2"     
+    ## [25] "#106"            "#94/2"           "#62"             "#84/2"          
+    ## [29] "#107"            "#85/2"           "#98"             "#102"           
+    ## [33] "#101"            "#111"            "#112"            "#97"            
+    ## [37] "#5/93"           "#5/93/2"         "#7/82-3-2"       "#7/110/3-2"     
+    ## [41] "#2/95/2"         "#82/4"           "#53"             "#79"            
+    ## [45] "#100"            "#4/84"           "#108"            "#99"            
+    ## [49] "#110"
