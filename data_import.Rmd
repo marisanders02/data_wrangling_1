@@ -1,0 +1,45 @@
+---
+title: "Data Import"
+output: github_document
+---
+
+```{r setup, echo=FALSE, message=FALSE}
+library(tidyverse)
+```
+
+This document will show how to import data 
+
+## Import the FAS Litters CSV
+
+Import and clean the data with janitor package 
+```{r}
+litters_df <- read_csv("Data_examples/FAS_litters.csv")
+
+litters_df <- janitor::clean_names(litters_df)
+```
+
+
+## Look at the data set 
+
+```{r}
+litters_df
+
+head(litters_df)
+tail(litters_df, 10)
+```
+
+
+```{r eval=FALSE}
+view(litters_df)
+```
+
+
+## Importing FAS Pups Dataset
+
+Importing and Cleaning the FAS Pups dataset
+```{r}
+pups_df <- read_csv("Data_examples/FAS_pups.csv")
+
+pups_df <- janitor::clean_names(pups_df)
+```
+
