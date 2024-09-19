@@ -651,10 +651,10 @@ litters_df <-
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
-read_csv("data_examples/FAS_litters.csv", na = c("NA", ".", "")) |>
-  janitor::clean_names() |>
-  mutate(wt_gain = gd18_weight - gd0_weight) |>
-  lm(wt_gain ~ pups_born_alive, data = _)
+read_csv("data_examples/FAS_litters.csv", na = c("NA", ".", "")) %>% 
+  janitor::clean_names() %>% 
+  mutate(wt_gain = gd18_weight - gd0_weight) %>% 
+  lm(wt_gain ~ pups_born_alive, data = .)
 ```
 
     ## Rows: 49 Columns: 8
@@ -668,8 +668,7 @@ read_csv("data_examples/FAS_litters.csv", na = c("NA", ".", "")) |>
 
     ## 
     ## Call:
-    ## lm(formula = wt_gain ~ pups_born_alive, data = mutate(janitor::clean_names(read_csv("data_examples/FAS_litters.csv", 
-    ##     na = c("NA", ".", ""))), wt_gain = gd18_weight - gd0_weight))
+    ## lm(formula = wt_gain ~ pups_born_alive, data = .)
     ## 
     ## Coefficients:
     ##     (Intercept)  pups_born_alive  
